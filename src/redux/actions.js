@@ -1,12 +1,11 @@
 import { createActions, handleActions } from "redux-actions";
 
-const defaultState = { info: {}, contacts: [], contact: {}, valid: true };
+const defaultState = { info: {}, contacts: [], contact: {} };
 
-export const { addData, fetchUsers, fetchUser, setValid } = createActions({
+export const { addData, fetchUsers, fetchUser } = createActions({
   ADD_DATA: (data) => ({ data }),
   FETCH_USERS: (data) => ({ data }),
   FETCH_USER: (data) => ({ data }),
-  SET_VALID: (bool) => ({ bool }),
 });
 
 const reducer = handleActions(
@@ -19,9 +18,6 @@ const reducer = handleActions(
     },
     [fetchUser]: (state, { payload }) => {
       return { ...state, contact: payload };
-    },
-    [setValid]: (state, { payload }) => {
-      return { ...state, valid: payload };
     },
   },
   defaultState

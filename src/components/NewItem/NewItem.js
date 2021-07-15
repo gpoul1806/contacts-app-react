@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./NewItem.scss";
-import axios from "axios";
 import { addData } from "../../redux/actions";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const Profile = () => {
   const [data, setData] = useState({
@@ -12,7 +11,6 @@ const Profile = () => {
     phone2: "",
     address: "",
   });
-  const info = useSelector((state) => state.info);
 
   const dispatch = useDispatch();
 

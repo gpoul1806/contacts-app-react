@@ -21,7 +21,7 @@ function App() {
         {
           id: info.name.charAt(0).toLowerCase() + Math.random(),
           key: info.name.charAt(0).toUpperCase(),
-          name: info.name.toLowerCase(),
+          name: info.name.toUpperCase(),
           email: info.email,
           phone1: info.phone1,
           phone2: info.phone2,
@@ -31,6 +31,7 @@ function App() {
       )
       .then(() => setVis(false))
       .then(() => dispatch(addData("")))
+      .then(() => alert("the contact has been created!"))
       .catch((err) => console.log("err", err))
       .finally(() => window.location.reload());
   };
@@ -38,9 +39,9 @@ function App() {
     const regEmail = new RegExp(/.+@.+/);
     const regPhone = new RegExp("^[0-9]+$");
     if (
-      (info.name === '') ||
-      (!regEmail.test(info.email)) ||
-      (!regPhone.test(info.phone1)) ||
+      info.name === "" ||
+      !regEmail.test(info.email) ||
+      !regPhone.test(info.phone1) ||
       (info.phone2 !== "" && !regPhone.test(info.phone2))
     ) {
       alert("wrong");

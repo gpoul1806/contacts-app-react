@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addData, fetchUser, setValid } from "../../redux/actions";
+import { addData, fetchUser } from "../../redux/actions";
 import "./Profile.scss";
 import axios from "axios";
 import { LoadingOutlined, DeleteOutlined } from "@ant-design/icons";
@@ -37,15 +37,14 @@ const Profile = ({ id, edit }) => {
   };
 
   const deleteContact = () => {
-    return (
-      axios
-        .delete(
-          `https://europe-west1-contacts-a-b3e89.cloudfunctions.net/api/users/${id}`,
-          { "content-type": "application-json" }
-        )
-        // .then(() => window.location.reload())
-        .catch((err) => console.log(err))
-    );
+    return axios
+      .delete(
+        `https://europe-west1-contacts-a-b3e89.cloudfunctions.net/api/users/${id}`,
+        { "content-type": "application-json" }
+      )
+      .then(() => window.location.reload())
+      .then(() => alert("the contact with the id " + id + " has been deleted"))
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {

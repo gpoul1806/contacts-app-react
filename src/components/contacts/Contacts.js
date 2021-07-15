@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { Modal } from "antd";
 import Profile from "../profile";
 import axios from "axios";
-import { addData, fetchUser, fetchUsers } from "../../redux/actions";
-import { LoadingOutlined, NodeIndexOutlined } from "@ant-design/icons";
+import { fetchUsers } from "../../redux/actions";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const Contacts = () => {
   const [visible, setVisible] = useState(false);
@@ -15,7 +15,6 @@ const Contacts = () => {
   const [edit, setEdit] = useState(false);
   const info = useSelector((state) => state.info.data);
   const valid = useSelector((state) => state.valid);
-  const contact = useSelector((state) => state.contact.data);
 
   console.log(23, valid);
 
@@ -51,6 +50,9 @@ const Contacts = () => {
         .then(() => setConf(false))
         .then(() => setEdit(false))
         .then(() => setVisible(false))
+        .then(() =>
+          alert("the contact with the id " + id + " has been updated")
+        )
         .catch((err) => console.log("err", err))
         .finally(() => window.location.reload())
     );
@@ -62,7 +64,8 @@ const Contacts = () => {
     if (
       (info.email !== "" && !regEmail.test(info.email)) ||
       (info.phone1 !== "" && !regPhone.test(info.phone1)) ||
-      (info.phone2 !== "" && !regPhone.test(info.phone2))
+      (info.phone2 !== "" && !regPhone.test(info.phone2)) ||
+      (info === null)
     ) {
       alert("wrong");
       setConf(false);
@@ -135,7 +138,6 @@ const Contacts = () => {
 
           <Modal
             visible={visible}
-            footer={valid.bool}
             okText={edit ? "save" : "edit"}
             cancelText="Close"
             onOk={editContact}
