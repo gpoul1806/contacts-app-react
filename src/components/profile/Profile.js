@@ -6,8 +6,6 @@ import axios from "axios";
 import { LoadingOutlined, DeleteOutlined } from "@ant-design/icons";
 
 const Profile = ({ id, edit }) => {
-  console.log(45, id);
-
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(true);
   const info = useSelector((state) => state.info.data);
@@ -22,6 +20,7 @@ const Profile = ({ id, edit }) => {
     address: "",
   });
 
+  // fetch only the selected contact 
   const getOneContact = () => {
     return axios
       .get(
@@ -35,7 +34,7 @@ const Profile = ({ id, edit }) => {
       .then(() => setLoading(false))
       .catch((err) => console.log(err));
   };
-
+  // delete only the selected contact
   const deleteContact = () => {
     return axios
       .delete(
@@ -46,13 +45,15 @@ const Profile = ({ id, edit }) => {
       .then(() => alert("the contact with the id " + id + " has been deleted"))
       .catch((err) => console.log(err));
   };
-
   useEffect(() => {
     getOneContact();
   }, []);
 
+  // setting the new state with the data which the user wants to update
   const change = ({ target: { value, title } }) => {
     setData({ ...data, [title]: value });
+    // and set them to the info sub-state in order to pass it to the Contacts component 
+    // in order to set the body in the put request
     dispatch(addData({ ...info, [title]: value }));
   };
 

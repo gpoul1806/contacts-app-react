@@ -1,4 +1,4 @@
-.profile {
+.create-profile {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +12,7 @@
     }
     .input {
       margin: 4px 4px;
+      width: 150px;
     }
   }
 }

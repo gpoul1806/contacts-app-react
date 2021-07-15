@@ -15,15 +15,17 @@ const Profile = () => {
   const dispatch = useDispatch();
 
   const change = ({ target: { value, title } }) => {
+    // set the data to the info sub-state in order to pass it to the App component 
+    // in order to set the body in the post request
     setData({ ...data, [title]: value });
     dispatch(addData({ ...data, [title]: value }));
   };
 
   return (
-    <div className="profile">
+    <div className="create-profile">
       <h1>New Contact</h1>
       <div className="row">
-        <span className="title">Name: </span>
+        <span className="title">Name:* </span>
         <input
           className="input"
           type="text"
@@ -35,7 +37,7 @@ const Profile = () => {
         />
       </div>
       <div className="row">
-        <span className="title">email: </span>
+        <span className="title">email:* </span>
         <input
           className="input"
           type="text"
@@ -47,7 +49,7 @@ const Profile = () => {
         />
       </div>
       <div className="row">
-        <span className="title">Primary Phone: </span>
+        <span className="title">Primary Phone:* </span>
         <input
           className="input"
           type="text"

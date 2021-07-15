@@ -8,15 +8,24 @@ import { fetchUsers } from "../../redux/actions";
 import { LoadingOutlined } from "@ant-design/icons";
 
 const Contacts = () => {
+  //this state is for handling the visibility of the profile's modal 
   const [visible, setVisible] = useState(false);
+  
+  // this is the state for assigning the Id of the specific contact clicked by the user
+  // in order to pass it as a prop to the Profile component
   const [id, setId] = useState(0);
+  
+  // this is the loading state  for user interface in order to wait while the data are about to be fetched
   const [loading, setLoading] = useState(true);
+  
+  // this is the state for the visibility of the confirmation modal when the user is about to update a contact 
   const [conf, setConf] = useState(false);
+  
+  // this is the state responsible for the modal 
+  // to show the data fetched from the api or 
+  // to show the form in order to update the contact
   const [edit, setEdit] = useState(false);
   const info = useSelector((state) => state.info.data);
-  const valid = useSelector((state) => state.valid);
-
-  console.log(23, valid);
 
   const dispatch = useDispatch();
 
@@ -46,7 +55,6 @@ const Contacts = () => {
           },
           { "content-type": "application-json" }
         )
-        // .then(() => dispatch(addData("")))
         .then(() => setConf(false))
         .then(() => setEdit(false))
         .then(() => setVisible(false))
@@ -58,6 +66,7 @@ const Contacts = () => {
     );
   };
 
+  // check if the email or the phone(s) have the proper format
   const update = () => {
     const regEmail = new RegExp(/.+@.+/);
     const regPhone = new RegExp("^[0-9]+$");
@@ -67,23 +76,29 @@ const Contacts = () => {
       (info.phone2 !== "" && !regPhone.test(info.phone2)) ||
       (info === null)
     ) {
+      // if not, alert an error 
       alert("wrong");
       setConf(false);
     } else {
+      // else, if everything is ok, update the contact
       updateContact();
     }
   };
+
+  // fetch all contacts from the api 
   const getAllContacts = () => {
     return axios
       .get(
         "https://europe-west1-contacts-a-b3e89.cloudfunctions.net/api/users",
         { "content-type": "application-json" }
       )
+      // assign all the data to the contacts sub-state of the store
       .then((res) => dispatch(fetchUsers(res.data.payload)))
       .then(() => setLoading(false))
       .catch((err) => console.log(err));
   };
 
+  // render the component only the first time with all the contacts 
   useEffect(() => {
     getAllContacts();
   }, []);
@@ -101,6 +116,7 @@ const Contacts = () => {
       ) : (
         <div className="contacts">
           {Object.values(userData.data)
+          // everytime a new contact is added, it must be placed in the right place according to the english alphabet
             .sort((a, b) => {
               if (a.name < b.name) {
                 return -1;
@@ -110,6 +126,7 @@ const Contacts = () => {
               }
               return 0;
             })
+            // then show all the contacts which are assigned in the sub-state (contacts)
             .map((item) => (
               <div
                 id={item.id}
@@ -135,7 +152,7 @@ const Contacts = () => {
                 </span>
               </div>
             ))}
-
+          {/* the modal responsible for the chosen contact to appear its profile */}
           <Modal
             visible={visible}
             okText={edit ? "save" : "edit"}
@@ -143,8 +160,9 @@ const Contacts = () => {
             onOk={editContact}
             onCancel={closePopup}
           >
-            <Profile id={id} edit={edit} init={true} />
+            <Profile id={id} edit={edit} />
           </Modal>
+          {/* the confirmational modal for updating the chose contact */}
           <Modal
             visible={conf}
             okText="Yes"

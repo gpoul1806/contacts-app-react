@@ -35,6 +35,9 @@ function App() {
       .catch((err) => console.log("err", err))
       .finally(() => window.location.reload());
   };
+
+  // check if the email or the phone(s) have the proper format and 
+  // check if the name, email and phone1 are not empty
   const saveContact = () => {
     const regEmail = new RegExp(/.+@.+/);
     const regPhone = new RegExp("^[0-9]+$");

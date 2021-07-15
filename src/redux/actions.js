@@ -1,6 +1,11 @@
 import { createActions, handleActions } from "redux-actions";
 
 const defaultState = { info: {}, contacts: [], contact: {} };
+// i have created three sub-states in order to assign: 
+// all the contacts fetched from the api ( contacts )
+// the one contact fetched from the api (contact)
+// and the info in order to push data to it in order to send them via put/post methods to the db
+
 
 export const { addData, fetchUsers, fetchUser } = createActions({
   ADD_DATA: (data) => ({ data }),
