@@ -1,0 +1,25 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  .row {
+    display: flex;
+    .title,
+    .text {
+      margin: 12px 8px;
+      width: 200px;
+    }
+    .input {
+      margin: 4px 4px;
+    }
+  }
+  .del {
+    border: 1px solid red;
+    border-radius: 8px;
+    background-color: red;
+    color: white;
+    padding: 8px;
+    cursor: pointer;
+  }
+}

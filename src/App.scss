@@ -1,0 +1,18 @@
+.App {
+  text-align: center;
+  background-color: lightseagreen;
+  color: white;
+  .head {
+    display: flex;
+    justify-content: space-between;
+    .title {
+      color: white;
+      padding: 8px 24px;
+    }
+    .plus {
+      padding: 12px 24px;
+      font-size: 36px;
+      cursor: pointer;
+    }
+  }
+}

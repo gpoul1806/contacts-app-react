@@ -1,0 +1,9 @@
+.catalog {
+  display: flex;
+  flex-direction: column;
+  .anchor {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+}
