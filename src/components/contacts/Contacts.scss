@@ -18,9 +18,11 @@
 @media (max-width: 420px) {
   .contacts {
     .contact {
+      margin: 8px 22px;
       .item {
         white-space: nowrap;
         overflow: hidden;
+        width: 140px;
       }
     }
   }

@@ -20,7 +20,7 @@ const Profile = ({ id, edit }) => {
     address: "",
   });
 
-  // fetch only the selected contact 
+  // fetch only the selected contact
   const getOneContact = () => {
     return axios
       .get(
@@ -52,7 +52,7 @@ const Profile = ({ id, edit }) => {
   // setting the new state with the data which the user wants to update
   const change = ({ target: { value, title } }) => {
     setData({ ...data, [title]: value });
-    // and set them to the info sub-state in order to pass it to the Contacts component 
+    // and set them to the info sub-state in order to pass it to the Contacts component
     // in order to set the body in the put request
     dispatch(addData({ ...info, [title]: value }));
   };
@@ -134,16 +134,22 @@ const Profile = ({ id, edit }) => {
               </div>
               <div className="row">
                 <span className="title">e-mail: </span>
-                <span className="text">{contact.email}</span>
+                <span className="text">
+                  <a className="link" href={"mailto:" + contact.email}> {contact.email}</a>
+                </span>
               </div>
               <div className="row">
                 <span className="title">Primary Phone: </span>
-                <span className="text">{contact.phone1}</span>
+                <span className="text">
+                  <a className="link" href={"tel:" + contact.phone1}> {contact.phone1}</a>
+                </span>
               </div>
               <div className="row">
                 <span className="title">Secondary Phone: </span>
                 <span className="text">
-                  {contact.phone2 ? contact.phone2 : ""}
+                  <a className="link" href={"tel:" + contact.phone2}>
+                    {contact.phone2 ? contact.phone2 : ""}
+                  </a>
                 </span>
               </div>
               <div className="row">
