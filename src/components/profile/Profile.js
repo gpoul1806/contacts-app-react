@@ -73,7 +73,7 @@ const Profile = ({ id, edit }) => {
                   type="text"
                   title="name"
                   value={data.name}
-                  placeholder="Name Surname"
+                  placeholder="John Smith"
                   onChange={change}
                   required
                 />
@@ -85,7 +85,7 @@ const Profile = ({ id, edit }) => {
                   type="email"
                   title="email"
                   value={data.email}
-                  placeholder="email"
+                  placeholder="john@gmail.com"
                   onChange={change}
                   required
                 />
@@ -97,7 +97,7 @@ const Profile = ({ id, edit }) => {
                   type="phone"
                   title="phone1"
                   value={data.phone1}
-                  placeholder="Primary phone"
+                  placeholder="6989988999"
                   onChange={change}
                   required
                 />
@@ -109,7 +109,7 @@ const Profile = ({ id, edit }) => {
                   type="phone"
                   title="phone2"
                   value={data.phone2 ? data.phone2 : ""}
-                  placeholder="Secondary phone"
+                  placeholder="2106080909"
                   onChange={change}
                 />
               </div>
@@ -120,7 +120,7 @@ const Profile = ({ id, edit }) => {
                   type="text"
                   title="address"
                   value={data.address ? data.address : ""}
-                  placeholder="Address City Zip Code"
+                  placeholder="Imittou 1, Pagkrati, 11633"
                   onChange={change}
                 />
               </div>
