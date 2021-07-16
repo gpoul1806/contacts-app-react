@@ -77,7 +77,7 @@ const Contacts = () => {
       (info === null)
     ) {
       // if not, alert an error 
-      alert("wrong");
+      alert("You have to add the field(s) with the proper format!");
       setConf(false);
     } else {
       // else, if everything is ok, update the contact
@@ -162,7 +162,7 @@ const Contacts = () => {
           >
             <Profile id={id} edit={edit} />
           </Modal>
-          {/* the confirmational modal for updating the chose contact */}
+          {/* the confirmational modal for updating the chosen contact */}
           <Modal
             visible={conf}
             okText="Yes"

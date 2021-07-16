@@ -47,7 +47,7 @@ function App() {
       !regPhone.test(info.phone1) ||
       (info.phone2 !== "" && !regPhone.test(info.phone2))
     ) {
-      alert("wrong");
+      alert("You have to add all the required fields with the proper format!");
     } else {
       createContact();
     }
