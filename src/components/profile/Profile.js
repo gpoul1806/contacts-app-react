@@ -47,7 +47,7 @@ const Profile = ({ id, edit }) => {
   };
   useEffect(() => {
     getOneContact();
-  }, []);
+  }, [id]);
 
   // setting the new state with the data which the user wants to update
   const change = ({ target: { value, title } }) => {

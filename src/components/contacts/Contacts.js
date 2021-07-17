@@ -26,6 +26,7 @@ const Contacts = () => {
   // to show the form in order to update the contact
   const [edit, setEdit] = useState(false);
   const info = useSelector((state) => state.info.data);
+  
 
   const dispatch = useDispatch();
 
@@ -37,7 +38,7 @@ const Contacts = () => {
   const closePopup = () => {
     setVisible(false);
     setEdit(false);
-    window.location.reload();
+    setId('')
   };
 
   const updateContact = () => {
@@ -62,7 +63,6 @@ const Contacts = () => {
           alert("the contact with the id " + id + " has been updated")
         )
         .catch((err) => console.log("err", err))
-        .finally(() => window.location.reload())
     );
   };
 
@@ -101,7 +101,7 @@ const Contacts = () => {
   // render the component only the first time with all the contacts 
   useEffect(() => {
     getAllContacts();
-  }, []);
+  }, [visible]);
 
   const userData = useSelector((state) => state.contacts);
 
@@ -160,7 +160,7 @@ const Contacts = () => {
             onOk={editContact}
             onCancel={closePopup}
           >
-            <Profile id={id} edit={edit} />
+            <Profile id={id} edit={edit} visible={visible} />
           </Modal>
           {/* the confirmational modal for updating the chosen contact */}
           <Modal
