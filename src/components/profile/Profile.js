@@ -135,13 +135,19 @@ const Profile = ({ id, edit }) => {
               <div className="row">
                 <span className="title">e-mail: </span>
                 <span className="text">
-                  <a className="link" href={"mailto:" + contact.email}> {contact.email}</a>
+                  <a className="link" href={"mailto:" + contact.email}>
+                    {" "}
+                    {contact.email}
+                  </a>
                 </span>
               </div>
               <div className="row">
                 <span className="title">Primary Phone: </span>
                 <span className="text">
-                  <a className="link" href={"tel:" + contact.phone1}> {contact.phone1}</a>
+                  <a className="link" href={"tel:" + contact.phone1}>
+                    {" "}
+                    {contact.phone1}
+                  </a>
                 </span>
               </div>
               <div className="row">
@@ -155,7 +161,13 @@ const Profile = ({ id, edit }) => {
               <div className="row">
                 <span className="title">Address: </span>
                 <span className="text">
-                  {contact.address ? contact.address : ""}
+                  <a
+                    className="link"
+                    href={"http://maps.google.com/maps?q=" + contact.address}
+                    target="_blank"
+                  >
+                    {contact.address ? contact.address : ""}
+                  </a>
                 </span>
               </div>
               <button className="del" onClick={deleteContact}>
