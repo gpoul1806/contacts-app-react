@@ -41,8 +41,8 @@ const Profile = ({ id, edit }) => {
         `https://europe-west1-contacts-a-b3e89.cloudfunctions.net/api/users/${id}`,
         { "content-type": "application-json" }
       )
-      .then(() => window.location.reload())
       .then(() => alert("the contact with the id " + id + " has been deleted"))
+      .then(() => window.location.reload())
       .catch((err) => console.log(err));
   };
   useEffect(() => {
