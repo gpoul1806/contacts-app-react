@@ -46,6 +46,7 @@ const Contacts = () => {
         `https://europe-west1-contacts-a-b3e89.cloudfunctions.net/api/users/${id}`,
         {
           id: info.id,
+          key: info.name.charAt(0),
           name: info.name,
           email: info.email,
           phone1: info.phone1,
@@ -127,25 +128,15 @@ const Contacts = () => {
             // then show all the contacts which are assigned in the sub-state (contacts)
             .map((item) => (
               <div
-                id={item.id}
+                id={item.key}
                 key={item.id}
                 className="contact"
                 onClick={enablePopup}
               >
-                <span
-                  className="item"
-                  id={item.id}
-                  className="item"
-                  onClick={enablePopup}
-                >
+                <span className="item" id={item.id} onClick={enablePopup}>
                   {item.name}
                 </span>
-                <span
-                  className="item"
-                  id={item.id}
-                  className="item"
-                  onClick={enablePopup}
-                >
+                <span className="item" id={item.id} onClick={enablePopup}>
                   {item.email}
                 </span>
               </div>

@@ -1,24 +1,94 @@
-.contacts {
-  .contact {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    border: 1px solid black;
-    border-radius: 12px;
-    padding: 12px;
-    margin: 8px 72px;
-    cursor: pointer;
-    .item {
-      max-width: 200px;
-      width: 100%;
+@media (min-width: 1671px) {
+  .contacts {
+    width: 1500px;
+    .contact {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 8px 72px;
+      cursor: pointer;
+      .item {
+        max-width: 200px;
+        width: 100%;
+      }
+    }
+  }
+}
+@media (min-width: 1400px) and (max-width: 1670px)  {
+  .contacts {
+    width: 1200px;
+    .contact {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 8px 72px;
+      cursor: pointer;
+      .item {
+        max-width: 200px;
+        width: 100%;
+      }
     }
   }
 }
 
-@media (max-width: 420px) {
+@media (min-width: 1024px) and (max-width: 1399px) {
   .contacts {
+    width: 950px;
     .contact {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 8px 72px;
+      cursor: pointer;
+      .item {
+        max-width: 200px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1024px) {
+  .contacts {
+    width: 600px;
+    .contact {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 12px;
+      padding: 12px;
+      margin: 8px 72px;
+      cursor: pointer;
+      .item {
+        max-width: 200px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 360px) and (max-width: 699px) {
+  .contacts {
+    width: 340px;
+    .contact {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      border: 1px solid black;
+      border-radius: 12px;
+      padding: 12px;
       margin: 8px 22px;
+      cursor: pointer;
       .item {
         white-space: nowrap;
         overflow: hidden;

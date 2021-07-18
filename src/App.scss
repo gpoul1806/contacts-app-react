@@ -5,9 +5,10 @@
   .head {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 40px;
     .title {
-      color: white;
-      padding: 8px 24px;
+      color: rgb(255, 255, 255);
+      margin: 8px 24px 8px 20px;
     }
     .plus {
       padding: 12px 24px;
